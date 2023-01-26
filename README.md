@@ -14,25 +14,13 @@ each user can
 
 find best libs to do complex functions.
 
-backtester check:
-algo-trader
-lean.io
-quantstats
+### framorks:
+- algo-trader
+- lean.io
+- quantstats
+- mlflow for tracking 
+- pytrader for brokers.
 
 
-for training function 
-check 
-
-and other 
 
 
-###  schema:
-
-grid
-martingale
-max positions 10
-max postiton size 1 lot
-
-portolfio allocation 
-
-Asset 30%, 
