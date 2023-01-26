@@ -11,7 +11,7 @@ lambda function
 - each user can train ,
 - each user can backtest
 - each user can add account
-- each user can 
+- each user can select from data we have
 
 ### CMS
 - Admin can see dashbaord stat
