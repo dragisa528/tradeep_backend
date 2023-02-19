@@ -1,0 +1,70 @@
+{
+    "model": {
+        "type": "PPO",
+        "parameters": {
+            "gamma": 0.99,
+            "clip_param": 0.2,
+            "ent_coef": 0.01,
+            "lr": 0.0001,
+            "nminibatches": 4,
+            "noptepochs": 4,
+            "clip_range": 0.2,
+            "vf_coef": 0.5,
+            "max_grad_norm": 0.5
+        }
+    },
+    "agent": {
+        "type": "PPO",
+        "parameters": {
+            "gamma": 0.99,
+            "clip_param": 0.2,
+            "ent_coef": 0.01,
+            "lr": 0.0001,
+            "nminibatches": 4,
+            "noptepochs": 4,
+            "clip_range": 0.2,
+            "vf_coef": 0.5,
+            "max_grad_norm": 0.5
+        }
+    },
+    "environment": {
+        "type": "stocks",
+        "parameters": {
+            "lookback_period": 30,
+            "transaction_cost": 0.01,
+            "volume": 1000,
+            "reward_function": "Sharpe Ratio",
+            "symbol_list": ["AAPL", "MSFT", "GOOG", "AMZN", "FB"],
+            "timeframe": "daily",
+            "history": "last year"
+        }
+    },
+    "reward": {
+        "Sharpe Ratio": {
+            "type": "Sharpe Ratio",
+            "parameters": {}
+        },
+        "Sortino Ratio": {
+            "type": "Sortino Ratio",
+            "parameters": {}
+        },
+        "Maximum Drawdown": {
+            "type": "Maximum Drawdown",
+            "parameters": {}
+        },
+        "Average Return": {
+            "type": "Average Return",
+            "parameters": {}
+        }
+    },
+    "actions": {
+        "discrete": {
+            "type": "discrete",
+            "parameters": {}
+        },
+        "continuous": {
+            "type": "continuous",
+            "parameters": {}
+        }
+    }
+}
