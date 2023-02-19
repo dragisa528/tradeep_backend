@@ -1,0 +1,64 @@
+{
+    "model": {
+        "type": "DQN",
+        "parameters": {
+            "gamma": 0.99,
+            "learning_rate": 0.0001,
+            "target_update_interval": 1000,
+            "buffer_size": 100000,
+            "batch_size": 32,
+            "max_steps": 100000
+        }
+    },
+    "agent": {
+        "type": "DQN",
+        "parameters": {
+            "eps_start": 1.0,
+            "eps_end": 0.01,
+            "eps_decay": 0.999,
+            "device": "cpu"
+        }
+    },
+    "environment": {
+        "type": "stocks",
+        "parameters": {
+            "lookback_period": 30,
+            "transaction_cost": 0.01,
+            "volume": 1000,
+            "reward_function": "Sharpe Ratio",
+            "symbol_list": ["AAPL", "MSFT", "GOOG", "AMZN", "FB"],
+            "timeframe": "daily",
+            "history": "last year"
+        }
+    },
+    "reward": {
+        "Sharpe Ratio": {
+            "type": "Sharpe Ratio",
+            "parameters": {}
+        },
+        "Sortino Ratio": {
+            "type": "Sortino Ratio",
+            "parameters": {}
+        },
+        "Maximum Drawdown": {
+            "type": "Maximum Drawdown",
+            "parameters": {}
+        },
+        "Average Return": {
+            "type": "Average Return",
+            "parameters": {}
+        }
+    },
+    "actions": {
+        "discrete": {
+            "type": "discrete",
+            "parameters": {
+                "num_actions": 3
+            }
+        },
+        "continuous": {
+            "type": "continuous",
+            "parameters": {}
+        }
+    }
+}
