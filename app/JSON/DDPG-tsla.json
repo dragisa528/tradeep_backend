@@ -50,16 +50,23 @@
         }
     },
     "actions": {
-        "discrete": {
-            "type": "discrete",
-            "parameters": {}
-        },
-        "continuous": {
-            "type": "continuous",
-            "parameters": {
-                "low": -1.0,
-                "high": 1.0
-            }
+    "discrete": {
+        "type": "discrete",
+        "parameters": {
+            "num_actions": 3,
+            "action_mapping": {
+                "0": "buy",
+                "1": "sell",
+                "2": "hold"
+            },
+            "action_names": ["buy", "sell", "hold"]
         }
+    },
+    "continuous": {
+        "type": "continuous",
+        "parameters": {}
+         }
+       }
+
     }
 }
