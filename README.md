@@ -21,11 +21,11 @@ lambda function
 
 
 ### framorks:
-- algo-trader
-- lean.io
+- pystore
 - quantstats
 - mlflow for tracking 
 - pytrader for brokers.
+- finrl 
 
 
 
