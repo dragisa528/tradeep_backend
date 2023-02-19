@@ -1,0 +1,14 @@
+{
+    "training": {
+        "batch_size": 32,
+        "num_epochs": 100,
+        "optimizer": "Adam",
+        "learning_rate": 0.001,
+        "early_stopping": false,
+        "patience": 5,
+        "tolerance": 0.01,
+        "max_grad_norm": 0.5,
+        "logging_interval": 100,
+        "checkpoint_interval": 1000
+    }
+}
