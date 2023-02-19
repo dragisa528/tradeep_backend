@@ -1,30 +1,63 @@
 {
     "model": {
-        "type": "DDPG",
+        "type": "CatBoost",
         "parameters": {
-            "input_shape": [10],
-            "output_shape": [2],
-            "layers": [64, 64],
-            "discount_factor": 0.99
+            "task_type": "GPU",
+            "iterations": 1000,
+            "learning_rate": 0.1,
+            "loss_function": "MAE",
+            "eval_metric": "MAE",
+            "random_seed": 42
         }
     },
-    "agent": {
-        "type": "DDPG",
+    "dataset": {
+        "type": "tsla",
         "parameters": {
-            "batch_size": 64,
-            "buffer_size": 1000000,
-            "actor_learning_rate": 0.0001,
-            "critic_learning_rate": 0.001
+            "timeframe": "daily",
+            "history": "last year",
+            "lookback_period": 30,
+            "feature_columns": ["Open", "High", "Low", "Close", "Volume"],
+            "target_column": "Close",
+            "train_test_split_ratio": 0.8,
+            "transaction_cost": 0.01
         }
     },
     "environment": {
         "type": "stocks",
         "parameters": {
             "lookback_period": 30,
-            "transaction_cost": 0.001,
+            "transaction_cost": 0.01,
             "volume": 1000,
             "reward_function": "Sharpe Ratio",
-            "symbol_list": ["AAPL", "MSFT", "GOOG", "AMZN", "FB"]
+            "symbol_list": ["TSLA"]
+        }
+    },
+    "reward": {
+        "Sharpe Ratio": {
+            "type": "Sharpe Ratio",
+            "parameters": {}
+        },
+        "Sortino Ratio": {
+            "type": "Sortino Ratio",
+            "parameters": {}
+        },
+        "Maximum Drawdown": {
+            "type": "Maximum Drawdown",
+            "parameters": {}
+        },
+        "Average Return": {
+            "type": "Average Return",
+            "parameters": {}
+        }
+    },
+    "actions": {
+        "discrete": {
+            "type": "discrete",
+            "parameters": {}
+        },
+        "continuous": {
+            "type": "continuous",
+            "parameters": {}
         }
     }
 }
