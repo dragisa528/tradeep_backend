@@ -21,14 +21,17 @@
         }
     },
     "environment": {
-        "type": "fx",
+        "type": "Stocks",
         "parameters": {
-            "lookback_period": 30,
-            "transaction_cost": 0.001,
+            "lookback_period": 90,
+            "transaction_cost": 0.01,
             "reward_function": "Sharpe Ratio",
             "symbol_list": ["TSLA"],
             "timeframe": "1h",
-            "history": "last month"
+            "history": "last month",
+            "default_trade_size": 1000,
+            "default_currency": "USD"
+            
         }
     },
     "reward": {
