@@ -28,8 +28,10 @@
             "reward_function": "Sharpe Ratio",
             "symbol_list": ["AAPL", "MSFT", "GOOG", "AMZN", "FB"],
             "timeframe": "daily",
-            "history": "last year"
-        }
+            "history": "last year",
+            "default_trade_size": 1000,
+            "default_currency": "USD"
+          }
     },
     "reward": {
         "Sharpe Ratio": {
@@ -50,15 +52,22 @@
         }
     },
     "actions": {
-        "discrete": {
-            "type": "discrete",
-            "parameters": {
-                "num_actions": 3
-            }
-        },
-        "continuous": {
-            "type": "continuous",
-            "parameters": {}
+    "discrete": {
+        "type": "discrete",
+        "parameters": {
+            "num_actions": 3,
+            "action_mapping": {
+                "0": "buy",
+                "1": "sell",
+                "2": "hold"
+            },
+            "action_names": ["buy", "sell", "hold"]
         }
+    },
+    "continuous": {
+        "type": "continuous",
+        "parameters": {}
     }
+}
+
 }
