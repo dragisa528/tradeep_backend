@@ -1,0 +1,65 @@
+{
+    "model": {
+        "type": "DDPG",
+        "parameters": {
+            "input_shape": [10],
+            "output_shape": [2],
+            "layers": [64, 64],
+            "discount_factor": 0.99
+        }
+    },
+    "agent": {
+        "type": "DDPG",
+        "parameters": {
+            "batch_size": 64,
+            "buffer_size": 1000000,
+            "actor_learning_rate": 0.0001,
+            "critic_learning_rate": 0.001,
+            "tau": 0.001,
+            "noise_stddev": 0.1,
+            "noise_type": "Ornstein-Uhlenbeck"
+        }
+    },
+    "environment": {
+        "type": "fx",
+        "parameters": {
+            "lookback_period": 30,
+            "transaction_cost": 0.001,
+            "reward_function": "Sharpe Ratio",
+            "symbol_list": ["TSLA"],
+            "timeframe": "1h",
+            "history": "last month"
+        }
+    },
+    "reward": {
+        "Sharpe Ratio": {
+            "type": "Sharpe Ratio",
+            "parameters": {}
+        },
+        "Sortino Ratio": {
+            "type": "Sortino Ratio",
+            "parameters": {}
+        },
+        "Profit Factor": {
+            "type": "Profit Factor",
+            "parameters": {}
+        },
+        "Total Return": {
+            "type": "Total Return",
+            "parameters": {}
+        }
+    },
+    "actions": {
+        "discrete": {
+            "type": "discrete",
+            "parameters": {}
+        },
+        "continuous": {
+            "type": "continuous",
+            "parameters": {
+                "low": -1.0,
+                "high": 1.0
+            }
+        }
+    }
+}
