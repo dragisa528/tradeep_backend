@@ -20,6 +20,7 @@ urlpatterns = [
     path('users', include('users.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('api/', include('freqtrade_integration.urls')),
     # re_path(r'^favicon\.ico$', favicon_view),
     # re_path(r"^(?:.*)/?$", render_react),
     # re_path(r"^(?!static)(?:.*)/?$", render_react),
