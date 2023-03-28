@@ -52,8 +52,8 @@ class MyStrategy(IStrategy):
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         # add your sell signal calculations here
         return dataframe
-
-
+    
+ 
 def index(request):
     # create a new instance of the FreqtradeBot class with some strategies and settings
     bot = FreqtradeBot(

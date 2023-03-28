@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'graphql_auth',
     'django_filters',
     "corsheaders",
-
+    'freqtrade_integration',
     'users',
 ]
 
