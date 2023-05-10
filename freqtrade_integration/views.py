@@ -63,8 +63,6 @@ def index(request):
         timeframe='5m',
         max_open_trades=5
     )
-
     # perform some analysis or trading operations using the bot
-
     # return the results to the user
     return render(request, 'freqtrade_integration/index.html', {'results': results})

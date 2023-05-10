@@ -27,6 +27,15 @@ lambda function
 - pytrader for brokers.
 - finrl 
 
+### Backend Integration:
+-  freqtrade integration
+-  migration from fastapi to django
+-  adding strategies
+
+## TOO:
+- Offering APIs for frontend to train models
+- Building models for strategy management
+
 
 
 
