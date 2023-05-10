@@ -3,7 +3,7 @@ django
 graphql
 aws
 s3
-lambda function
+spot instance OR ec2
 
 ### backend:
 - each user can build model
