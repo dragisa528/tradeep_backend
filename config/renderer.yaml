@@ -1,0 +1,42 @@
+agent:
+  type: PPO  # Proximal Policy Optimization
+  parameters:
+    gamma: 0.99  # discount factor
+    learning_rate: 0.0003
+    gae_lambda: 0.95  # Generalized Advantage Estimation lambda
+    clip_epsilon: 0.2  # epsilon for the PPO clip function
+    entropy_beta: 0.01  # entropy regularization factor
+    update_epochs: 10  # number of epochs to update the policy
+    batch_size: 64  # batch size for policy update
+    policy: "stochastic"  # type of policy (e.g., "stochastic", "deterministic")
+    risk_tolerance: 0.05  # risk tolerance level
+
+environment:
+  type: TradingEnvironment
+  parameters:
+    base_currency: "USD"  # base currency for trading
+    initial_capital: 10000  # initial trading capital
+    transaction_cost: 0.001  # transaction cost as a fraction of trade amount
+    reward_function: "profit"  # type of reward function (e.g., "profit", "sharpe_ratio")
+    window size: 300 
+    action_space: 
+      - action: "buy"
+        parameters:
+          min_order_size: 1
+          max_order_size: 100
+      - action: "sell"
+        parameters:
+          min_order_size: 1
+          max_order_size: 100
+      - action: "hold"
+
+training:
+  episodes: 1000
+  device: "xllarge"   #gpu cpu etc... 
+  
+
+data:
+  source: "path/to/your/data.csv"
+
+strategy:
+  type: "markov_decision_process"
