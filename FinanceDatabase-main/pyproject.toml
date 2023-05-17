@@ -1,0 +1,22 @@
+[tool.ruff]
+line-length = 122
+select = ["E", "W", "F", "Q", "W", "S", "UP", "I", "PD", "SIM", "PLC", "PLE", "PLR", "PLW"]
+ignore = ["S105", "S106", "S107", "PLR0913"]
+
+[tool.pylint]
+max-line-length = 122
+disable = ["R0913", "W1514", "R0911", "R0912", "R0915", "R0801", "W0221", "C0103"]
+
+[tool.ruff.isort]
+combine-as-imports = true
+force-wrap-aliases = true
+
+[tool.isort]
+profile = "black"
+line_length = 122
+skip_gitignore = true
+combine_as_imports = true
+
+[tool.codespell]
+ignore-words-list = 'ZAR,zar,profund,BASF,basf,applicatio,Ser,Mone,VIE'
+skip = '*.json,./.git,*.csv,pyproject.toml,*.ipynb'
