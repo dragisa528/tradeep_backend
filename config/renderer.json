@@ -1,0 +1,40 @@
+{
+  "agent": {
+    "type": "MODEL_TYPE",
+    "parameters": {
+      "gamma": "DISCOUNT_FACTOR",
+      "learning_rate": "LEARNING_RATE",
+      "batch_size": "BATCH_SIZE",
+      "policy": "POLICY_TYPE",
+      "risk_tolerance": "RISK_TOLERANCE"
+    }
+  },
+  "environment": {
+    "type": "ENVIRONMENT_TYPE",
+    "parameters": {
+      "timeframe": "TIMEFRAME",
+      "reward_function": "REWARD_FUNCTION_TYPE",
+      "action_space": [
+        {
+          "action": "ACTION_TYPE_1",
+          "parameters": {}
+        },
+        {
+          "action": "ACTION_TYPE_2",
+          "parameters": {}
+        }
+      ]
+    }
+  },
+  "training": {
+    "episodes": "NUMBER_OF_EPISODES",
+    "device": "DEVICE_TYPE"
+  },
+  "data": {
+    "source": "path/to/your/data.ext",
+    "features_vector": ["FEATURE_1", "FEATURE_2", "FEATURE_3"]  // replace with your actual feature names
+  },
+  "strategy": {
+    "type": "STRATEGY_TYPE"
+  }
+}
