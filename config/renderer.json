@@ -32,7 +32,7 @@
   },
   "data": {
     "source": "path/to/your/data.ext",
-    "features_vector": ["FEATURE_1", "FEATURE_2", "FEATURE_3"]  // replace with your actual feature names
+    "features_vector": ["FEATURE_1", "FEATURE_2", "FEATURE_3"]  
   },
   "strategy": {
     "type": "STRATEGY_TYPE"
