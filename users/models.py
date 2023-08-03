@@ -1,12 +1,8 @@
-from django.db import models
-from django.contrib.auth.models import AbstractUser
-
-
-# Create your models here.
-
-class AuthUser(AbstractUser):
-
-    email = models.EmailField(blank=False, verbose_name="email")
-
-    USERNAME_FIELD = "username"
-    EMAIL_FIELD = "email"
+from django.db import models  
+class UserModel(models.Model):  
+    uid = models.CharField(max_length=50) 
+    username = models.CharField(max_length=50)  
+    email = models.CharField(max_length=50)  
+    upass = models.CharField(max_length=50)
+    class Meta:  
+        db_table = "postgres"
