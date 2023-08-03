@@ -20,7 +20,7 @@ spot instance OR ec2
 - Add content
 
 
-### framorks:
+### frameworks:
 - pystore
 - quantstats
 - mlflow for tracking 
