@@ -48,6 +48,7 @@ def register(request):
         form = UserForm()
     return form
 
+
 @ensure_csrf_cookie
 @api_view(["POST"])
 def login(request):
@@ -61,18 +62,17 @@ def login(request):
         if username and password:
             # Check if the user exists in the database
             try:
-                user = User.objects.get(username=username)
+                user = UserModel.objects.get(username=username)
                 if user.password == password:
                     return HttpResponse("Login successful")
                 else:
                     return HttpResponse("Invalid password")
-            except User.DoesNotExist:
+            except Exception as e:
                 return HttpResponse("User does not exist")
         else:
             return HttpResponse("Invalid username or password")
     else:
         return HttpResponse("Invalid request method")
-
 
 @ensure_csrf_cookie
 @api_view(["GET"])
