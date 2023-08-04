@@ -3,6 +3,7 @@ from users.forms import UserForm
 from users.models import UserModel
 from django.http import HttpResponse
 from rest_framework.response import Response
+from django.contrib.auth import authenticate, login
 from rest_framework import status
 import json
 from rest_framework import serializers

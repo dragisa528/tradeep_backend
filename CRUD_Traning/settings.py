@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'crudexample.urls'
+ROOT_URLCONF = 'CRUD_Traning.urls'
 
 TEMPLATES = [
     {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'crudexample.wsgi.application'
+WSGI_APPLICATION = 'CRUD_Traning.wsgi.application'
 
 
 # Database
