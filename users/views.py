@@ -11,6 +11,7 @@ from . import models
 from rest_framework.decorators import api_view
 from django.views.decorators.csrf import ensure_csrf_cookie
 import json
+from rest_framework import viewsets, response, status
 
 
 class MenuSerializer(serializers.ModelSerializer):
@@ -55,14 +56,14 @@ def login(request):
     if request.method == "POST":
         print(request.body)
         temp = json.loads(request.body)
-        username = temp["username"]
+        email = temp["email"]
         password = temp["password"]
 
         # Validate the username and password
-        if username and password:
+        if email and password:
             # Check if the user exists in the database
             try:
-                user = UserModel.objects.get(username=username)
+                user = UserModel.objects.get(email=email)
                 if user.password == password:
                     return HttpResponse("Login successful")
                 else:
@@ -70,7 +71,7 @@ def login(request):
             except Exception as e:
                 return HttpResponse("User does not exist")
         else:
-            return HttpResponse("Invalid username or password")
+            return HttpResponse("Invalid email or password")
     else:
         return HttpResponse("Invalid request method")
 
