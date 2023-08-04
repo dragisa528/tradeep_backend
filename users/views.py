@@ -53,7 +53,26 @@ def register(request):
 def login(request):
     if request.method == "POST":
         print(request.body)
-        return 1
+        temp = json.loads(request.body)
+        username = temp["username"]
+        password = temp["password"]
+
+        # Validate the username and password
+        if username and password:
+            # Check if the user exists in the database
+            try:
+                user = User.objects.get(username=username)
+                if user.password == password:
+                    return HttpResponse("Login successful")
+                else:
+                    return HttpResponse("Invalid password")
+            except User.DoesNotExist:
+                return HttpResponse("User does not exist")
+        else:
+            return HttpResponse("Invalid username or password")
+    else:
+        return HttpResponse("Invalid request method")
+
 
 @ensure_csrf_cookie
 @api_view(["GET"])
