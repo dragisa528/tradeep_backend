@@ -47,7 +47,6 @@ def register(request):
         form = UserForm()
     return form
 
-
 @ensure_csrf_cookie
 @api_view(["POST"])
 def login(request):
