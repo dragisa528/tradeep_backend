@@ -1,15 +1,15 @@
 import graphene
 from graphene_django import DjangoObjectType
-from .models import YourModel
+from training_api.models import Task
 
 class YourModelType(DjangoObjectType):
     class Meta:
-        model = YourModel
+        model = Task
 
 class Query(graphene.ObjectType):
-    all_yourmodels = graphene.List(YourModelType)
+    all_yourmodels = graphene.List(Task)
 
     def resolve_all_yourmodels(self, info):
-        return YourModel.objects.all()
+        return Task.objects.all()
 
 schema = graphene.Schema(query=Query)
