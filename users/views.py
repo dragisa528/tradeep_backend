@@ -19,13 +19,10 @@ class MenuSerializer(serializers.ModelSerializer):
         model = models.UserModel
         fields = "__all__"
 
-
 @ensure_csrf_cookie
 @api_view(["POST"])
 def register(request):
-    userload = []
     if request.method == "POST":
-        print(request.body)
         temp = json.loads(request.body)
         if temp["password1"] == temp["password2"]:
             data = {
@@ -38,16 +35,45 @@ def register(request):
             form = UserForm(data)  # json handling for POST
             if form.is_valid():
                 try:
-                    form.save()
-                    return HttpResponse("OK")
+                    user = form.save()
+                    return HttpResponse("Register successfully!")
                 except Exception as e:
                     print(e)
-                    pass
+                    return HttpResponse("Error occurred while saving user")
             else:
-                return HttpResponse("Form inValid")
+                return HttpResponse("Form is invalid")
+        else:
+            return HttpResponse("Passwords do not match")
     else:
-        form = UserForm()
-    return form
+        return HttpResponse("Invalid request method")
+# @ensure_csrf_cookie
+# @api_view(["POST"])
+# def register(request):
+#     userload = []
+#     if request.method == "POST":
+#         print(request.body)
+#         temp = json.loads(request.body)
+#         if temp["password1"] == temp["password2"]:
+#             data = {
+#                 "upass": temp["password1"],
+#                 "username": temp["username"],
+#                 "uid": "111",
+#                 "email": temp["email"],
+#             }
+#             tt = json.dumps(data)
+#             form = UserForm(data)  # json handling for POST
+#             if form.is_valid():
+#                 try:
+#                     form.save()
+#                     return HttpResponse("OK")
+#                 except Exception as e:
+#                     print(e)
+#                     pass
+#             else:
+#                 return HttpResponse("Form inValid")
+#     else:
+#         form = UserForm()
+#     return form
 
 
 @ensure_csrf_cookie
