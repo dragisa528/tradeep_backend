@@ -36,6 +36,7 @@ class CreateTaskMutation(DjangoMutation):
 class Mutation(graphene.ObjectType):
     create_task = CreateTaskMutation.Field()
 
-
+class Query(graphene.ObjectType):
+    tasks = DjangoListField(TaskType)
 
 schema = graphene.Schema(query=Query, mutation=Mutation)
