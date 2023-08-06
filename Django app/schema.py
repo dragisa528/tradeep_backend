@@ -33,6 +33,9 @@ class CreateTaskMutation(DjangoMutation):
         except json.JSONDecodeError:
             return CreateTaskMutation(errors={'json_data': 'Invalid JSON format'})
 
+class Mutation(graphene.ObjectType):
+    create_task = CreateTaskMutation.Field()
+
 
 
 schema = graphene.Schema(query=Query, mutation=Mutation)
