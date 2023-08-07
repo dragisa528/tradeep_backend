@@ -46,36 +46,6 @@ def register(request):
             return HttpResponse("Passwords do not match")
     else:
         return HttpResponse("Invalid request method")
-# @ensure_csrf_cookie
-# @api_view(["POST"])
-# def register(request):
-#     userload = []
-#     if request.method == "POST":
-#         print(request.body)
-#         temp = json.loads(request.body)
-#         if temp["password1"] == temp["password2"]:
-#             data = {
-#                 "upass": temp["password1"],
-#                 "username": temp["username"],
-#                 "uid": "111",
-#                 "email": temp["email"],
-#             }
-#             tt = json.dumps(data)
-#             form = UserForm(data)  # json handling for POST
-#             if form.is_valid():
-#                 try:
-#                     form.save()
-#                     return HttpResponse("OK")
-#                 except Exception as e:
-#                     print(e)
-#                     pass
-#             else:
-#                 return HttpResponse("Form inValid")
-#     else:
-#         form = UserForm()
-#     return form
-
-
 @ensure_csrf_cookie
 @api_view(["POST"])
 def login(request):
@@ -84,13 +54,12 @@ def login(request):
         temp = json.loads(request.body)
         email = temp["email"]
         password = temp["password"]
-
         # Validate the username and password
         if email and password:
             # Check if the user exists in the database
             try:
                 user = UserModel.objects.get(email=email)
-                if user.password == password:
+                if user.upass == password:
                     return HttpResponse("Login successful")
                 else:
                     return HttpResponse("Invalid password")
