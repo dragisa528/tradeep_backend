@@ -84,14 +84,53 @@ spot instance OR ec2
 - pytrader for brokers.
 - finrl 
 
-### Backend Integration:
--  freqtrade integration
--  migration from fastapi to django
--  adding strategies
 
-## TASKS
-
-
-
-
-
+# Tradeep.ai Backend Structure
+```
+├── data
+│   ├── financial (Centralized data using pystore)
+│   │   ├── pystore_stock_data
+│   │   ├── pystore_crypto_data
+│   │   ├── pystore_forex_data
+│   │   ├── pystore_commodities_data
+├── users
+│   ├── user_configs (Individual user training configurations)
+│   │   ├── user1_config.json
+│   │   ├── user2_config.json
+│   ├── user_features (Private features using pystore)
+│   │   ├── pystore_user1_features
+│   │   ├── pystore_user2_features
+│   ├── user_training_results (Private training results)
+│   │   ├── user1_results.jsonl
+│   │   ├── user2_results.jsonl
+│   ├── exported_models (Private exported models)
+│   │   ├── user1_model1.bin
+│   │   ├── user2_model1.bin
+│   ├── user_profiles
+│   │   ├── user1_profile.json
+│   │   ├── user2_profile.json
+│   ├── user_auth
+│   │   ├── user1_creds.json
+│   │   ├── user2_creds.json
+│   ├── admin
+│   │   ├── admin_content_editable
+│   │   │   ├── content_page1.md
+│   │   │   ├── content_page2.md
+├── api
+│   ├── README.md
+│   ├── graphql
+│   │   ├── schema.graphql
+│   │   ├── resolvers.py
+├── sdk
+│   ├── openbb
+│   │   ├── data_connector.py
+│   │   ├── financial_analysis_toolkit.py
+├── utils
+│   ├── pystore_utils.py (Utility for handling data and features using pystore)
+│   ├── training_session.py
+├── tests
+│   ├── test_api.py
+│   ├── test_data_access.py
+├── Dockerfile
+├── requirements.txt
+```
